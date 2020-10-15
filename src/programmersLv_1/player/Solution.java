@@ -27,7 +27,6 @@ public class Solution {
 			if(!participant[i].equals(completion[i])) {
 				return participant[i];	
 				// return은 실행 중인 구문을 중단시키고 바로 값을 return 시킨다.
-				// 참가자 배열과 완주자 배열에 다른 이름이 하나라도 있으니(완주하지 못한 선수) 그 이름을 리턴시킨다.
 			}
 		}
 		
