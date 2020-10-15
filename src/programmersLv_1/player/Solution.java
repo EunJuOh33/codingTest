@@ -18,6 +18,7 @@ public class Solution {
 	
 	public String solution(String[] participant, String[] completion) {
 		String answer = "";
+		
 		// 정렬을 하는 이유 : participant[i]와 completion[i]를 비교해야 하기 때문 
 		Arrays.sort(participant);
 		Arrays.sort(completion);
@@ -26,12 +27,15 @@ public class Solution {
 		for(i=0; i < completion.length; i++) {
 			if(!participant[i].equals(completion[i])) {
 				return participant[i];	
-				// return은 실행 중인 구문을 중단시키고 바로 값을 return 시킨다.
+				// return : 실행 중인 구문을 중단시키고 바로 값을 return 시킨다.
 			}
 		}
 		
-		return participant[i];
+		return answer;
 	}
+	
+	// participant = [ aaa, bbb, ccc, ccc, ddd, eee ]
+	// completion = [ aaa, bbb, ccc, ddd, eee ]
 	
 	
 	/* 테스트 - 실행 */
@@ -39,31 +43,14 @@ public class Solution {
 		/* 배열 선언*/
 		String[] participant = {"ccc", "eee", "aaa", "bbb", "aaa"};
 		String[] completion = {"bbb", "ccc", "eee", "aaa"};
-		
-		
-		/* 배열 요소 차례대로 출력 - 정렬하기 전 */
-		int i;
-		
-		// participant 배열 요소 차례대로 출력
-		for(i=0; i < participant.length; i++) {
-			System.out.println("[ i = " + i + " ]-------[ " + participant[i] + " ]");	
-		}
-		
-		System.out.println("----------------------------------");
-		
-		// completion 배열 요소 차례대로 출력
-		for(i=0; i < completion.length; i++) {
-			System.out.println("[ i = " + i + " ]-------[ " + completion[i] + " ]");	
-		}
-		System.out.println();
-		
+		// participant = [ aaa, aaa, bbb, ccc, eee ]
+		// completion = [ aaa, bbb, ccc, eee ]
 		
 		/* 배열 요소 차례대로 출력 - 정렬 후 */
-		System.out.println("--------------- 정렬 후 -----------------");
-		System.out.println();
-		
 		Arrays.sort(participant);
 		Arrays.sort(completion);
+		
+		int i;
 		
 		for(i=0; i < participant.length; i++) {
 			System.out.println("[ i = " + i + " ]-------[ " + participant[i] + " ]");	
