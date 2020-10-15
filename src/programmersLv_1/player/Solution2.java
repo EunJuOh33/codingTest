@@ -20,9 +20,16 @@ public class Solution2 {
 			String answer = "";
 			HashMap<String, Integer> hm = new HashMap<>();
 			
-	        for (String player : participant) hm.put(player, hm.getOrDefault(player, 0) + 1);
+			// 1. 전체 참가자 수만큼 for문을 돌며 참가자 이름을 'key'로, 동일한 이름의 참가자를 가진 수만큼 '값(vlue)'으로 넣음
+	        for (String player : participant) {
+	        	hm.put(player, hm.getOrDefault(player, 0) + 1);
+	        	// ( aaa, )
+	        }
 	        
-	        for (String player : completion) hm.put(player, hm.get(player) - 1);
+	        // 2. 완주자의 수 만큼 for문을 돌며 map의 key가 완주자와 동일하면 값을 1씩 뺀다.
+	        for (String player : completion) {
+	        	hm.put(player, hm.get(player) - 1);
+	        }
 
 	        for (String key : hm.keySet()) {
 	            if (hm.get(key) != 0) {
@@ -38,6 +45,16 @@ public class Solution2 {
 		public static void main(String[] args) {
 			String[] participant = {"mislav", "stanko", "mislav", "ana"};
 			String[] completion = {"stanko", "mislav", "ana"};
+			
+			// HashMap<String, Integer> hm = new HashMap<String, Integer>();
+			// HashMap<String, Integer> hm = new HashMap<>(10);	// 초기 용량(capacity) 지정 
+			// HashMap<String, Integer> hm = new HashMap<String, Integer>() {
+			//	 put("a", "b");	// 초기 값 지정
+			// };
+			// HashMap<String, Integer> hm = new HashMap<>();	// new에서 타입, 파라미터 생략 가능
+			
+			// hm.put("사과", 1);
+			// hm.put("배", 2);
 			
 			Solution sol = new Solution();
 			System.out.println(sol.solution(participant, completion));
