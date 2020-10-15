@@ -23,7 +23,7 @@ public class Solution2 {
 		}
 
 		
-		/* 테스트 - 실행 */
+		/* 테스트 - 실행2 */
 		public static void main(String[] args) {
 			String[] participant = {"mislav", "stanko", "mislav", "ana"};
 			String[] completion = {"stanko", "mislav", "ana"};
