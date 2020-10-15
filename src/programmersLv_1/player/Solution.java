@@ -36,10 +36,49 @@ public class Solution {
 	
 	/* 테스트 - 실행 */
 	public static void main(String[] args) {
-		String[] participant = {"mislav", "stanko", "mislav", "ana"};
-		String[] completion = {"stanko", "mislav", "ana"};
+		/* 배열 선언*/
+		String[] participant = {"ccc", "eee", "aaa", "bbb", "aaa"};
+		String[] completion = {"bbb", "ccc", "eee", "aaa"};
+		
+		
+		/* 배열 요소 차례대로 출력 - 정렬하기 전 */
+		int i;
+		
+		// participant 배열 요소 차례대로 출력
+		for(i=0; i < participant.length; i++) {
+			System.out.println("[ i = " + i + " ]-------[ " + participant[i] + " ]");	
+		}
+		
+		System.out.println("----------------------------------");
+		
+		// completion 배열 요소 차례대로 출력
+		for(i=0; i < completion.length; i++) {
+			System.out.println("[ i = " + i + " ]-------[ " + completion[i] + " ]");	
+		}
+		System.out.println();
+		
+		
+		/* 배열 요소 차례대로 출력 - 정렬 후 */
+		System.out.println("--------------- 정렬 후 -----------------");
+		System.out.println();
+		
+		Arrays.sort(participant);
+		Arrays.sort(completion);
+		
+		for(i=0; i < participant.length; i++) {
+			System.out.println("[ i = " + i + " ]-------[ " + participant[i] + " ]");	
+		}
+		
+		System.out.println("----------------------------------");
+		
+		for(i=0; i < completion.length; i++) {
+			System.out.println("[ i = " + i + " ]-------[ " + completion[i] + " ]");	
+		}
+		
 		
 		Solution sol = new Solution();
+		System.out.println("----------------------------------");
+		System.out.println();
 		System.out.println(sol.solution(participant, completion));
 	}
 }
