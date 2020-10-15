@@ -77,7 +77,7 @@ public class Solution {
 		
 		
 		Solution sol = new Solution();
-		System.out.println("----------------------------------");
+		System.out.println("----------------- 결과 -----------------");
 		System.out.println();
 		System.out.println(sol.solution(participant, completion));
 	}
