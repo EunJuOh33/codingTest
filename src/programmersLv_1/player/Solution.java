@@ -19,8 +19,8 @@ public class Solution {
 	public String solution(String[] participant, String[] completion) {
 		String answer = "";
 		// 정렬을 하는 이유 : participant[i]와 completion[i]를 비교해야 하기 때문 
-		Arrays.sort(participant);	// [ "mislav", "stanko", "mislav", "ana" ]
-		Arrays.sort(completion);	// [ "stanko", "mislav", "ana" ]	-> 동명이인인 "mislav"가 완주하지 못한 선수.
+		Arrays.sort(participant);
+		Arrays.sort(completion);
 		
 		int i;
 		for(i=0; i < completion.length; i++) {
