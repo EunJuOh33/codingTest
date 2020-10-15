@@ -77,7 +77,7 @@ public class Solution {
 		
 		
 		Solution sol = new Solution();
-		System.out.println("----------------- 결과 -----------------");
+		System.out.println("----------------- 완주하지 못한 선수 -----------------");
 		System.out.println();
 		System.out.println(sol.solution(participant, completion));
 	}
