@@ -1,4 +1,4 @@
-package programmersLv_1.player;
+package programmers.lv_1.player;
 
 import java.util.HashMap;
 
