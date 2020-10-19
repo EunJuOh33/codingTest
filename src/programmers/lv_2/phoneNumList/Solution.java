@@ -39,6 +39,7 @@ public class Solution {
 
 	 
 	 
+	 
 	/* 실행 - 테스트 */
 	public static void main(String[] args) {
 		String[] phone_book1 = {"119", "97674223", "1195524421"};
