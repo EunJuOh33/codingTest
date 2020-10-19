@@ -20,6 +20,7 @@ public class Solution {
 	 * 				  'abcde'.startsWith( 'a' ) -> abcd가 a로 시작하는지 검사한다.
 	 */
 	
+	
 	 public boolean solution(String[] phone_book) {
 		 boolean answer = true;
 	       
