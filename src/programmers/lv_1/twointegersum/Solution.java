@@ -17,26 +17,21 @@ public class Solution {
 	public long solution(int a, int b) {
         long answer = 0;
         
-        // 1. a > b 인 경우
-        if(a > b) {
+        // 여기서 a > b 인 경우와 a = b 인 경우 둘 다 계산할 수 있다.
+        if(a >= b) {
         	for(int i=b; i <= a; i++) {
         		answer += i;
         	}
-        
-        // 2. a < b 인 경우	
-        } else if(a < b) {
+        	
+        } else {
         	for(int i=a; i <= b; i++) {
         		answer += i;
         	}
-        	
-        // 3. a와 b가 같은 경우
-        // 하지만 사실 이 else문이 필요없다. 이미 위의 함수로도 a와 b가 같은 경우까지 계산되기 때문이다..
-        } else {
-        	return a;
         }
         
         return answer;
     }
+
 	
 	
 	
