@@ -76,6 +76,8 @@ public class Solution {
 		System.out.println(sol.solution2(a1, b1));
 		System.out.println(sol.solution2(a1, b2));
 		System.out.println(sol.solution2(a2, b1));
+		
+		System.out.println(Math.max(9, 9));		// Math.max는 같은 숫자가 인자로 들어오면 수를 그대로 리턴한다. 
 	}
 
 	
