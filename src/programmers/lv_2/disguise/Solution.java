@@ -1,8 +1,6 @@
 package programmers.lv_2.disguise;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class Solution {
 	/*
@@ -35,7 +33,7 @@ public class Solution {
         	kindsMap.put( clothes[i][1], kindsMap.getOrDefault(clothes[i][1], 0)+1 );
         }
         
-        // 2. 경우의 수 체크 answer *= (옷 가지수 + 안 입을 경우)
+        // 2. 경우의 수 체크 answer *= (옷 가지수 + 안 입을 경우) 안 입는 경우도 가지수 하나로 친다!
         for (int val : kindsMap.values()) {		// 해시의 '값'을 차례대로 val에 대입
             answer *= (val + 1);
         }
