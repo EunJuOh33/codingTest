@@ -69,6 +69,6 @@ public class Main {
         
         sc.close();
         
-	}	// main 끝
+	}
 
 }
