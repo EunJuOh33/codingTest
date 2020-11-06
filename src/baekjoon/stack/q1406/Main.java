@@ -1,9 +1,9 @@
 package baekjoon.stack.q1406;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Stack;
 
 public class Main {
 	/*
@@ -23,55 +23,52 @@ public class Main {
 	 * - 명령어가 수행되기 전에 커서는 문장의 맨 뒤에 위치 
 	 */
 
-	public static void main(String[] args) {
-		// 1. 스캐너를 통해 명령의 수(M)와 문자열을 입력받는다.
-        Scanner sc = new Scanner(System.in);
+	public static void main(String[] args) throws IOException {		// BifferedReader 사용하려면 IOExeption 해야 함
+		// 1. 명령의 수(M)와 문자열을 입력받는다.
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
  
-        String str = sc.next();	// 첫째 줄 : 문자열
-        int M = sc.nextInt();	// 둘째 줄 : 명령의 수
+		StringBuilder str = new StringBuilder(reader.readLine());	// 첫째 줄 : 문자열
+		int n = Integer.parseInt(reader.readLine());				// 둘째 줄 : 명령의 수
         
         
-        // 2. 입력받은 문자열을 List에 한글자씩 넣는다.
-        String[] arr_str;
-        arr_str = str.split("");	// 문자열을 String 배열로 변환
+        // 2. 입력받은 문자열(str)을 lSack에 한글자씩 넣는다.
+		Stack lStack = new Stack<>();	// 문자열이 들어있는 Stack
+		Stack rStack = new Stack<>();	// 
         
-        List<String> list_str = new ArrayList<String>( Arrays.asList(arr_str) );	// 배열을 list로 전환
-        
-        
-        // 3. 명령을 수행한다.
-        for(int i=0; i < M; i++) {					// 명령의 개수(M)만큼 반복한다.
-        		int cursor = list_str.size();		// 커서 위치. 커서는 문장의 맨 뒤에 위치. 예) str = abcd 라면 cursor = 4
-        		String input = sc.next();			// 셋째 줄부터 M개의 명령이 들어온다.
-	        	
-        		if(input.equals("P")) {
-	        		String input2 = sc.next();
-	        		list_str.add(cursor, input2);	// index cursor에 데이터 input2 추가
-	        		cursor++;						// 커서는 한 칸 뒤로 밀린다.
-        		}
-        		else if(input.equals("B")) {		// B : 커서 왼쪽에 있는 문자를 삭제
-        			if(cursor != 0) {				// '커서가 맨 앞에 있다면'을 표현하기 위함
-        				list_str.remove(cursor); 	// index cursor 제거	        
-        			}
-				}
-        		else if(input.equals("D")) {
-					if( cursor != (list_str.size() -1) ) {
-						cursor++;
-					}
-				}
-        		else if(input.equals("L")) {	// L : 커서를 왼쪽으로 한 칸 옮김
-        			if(cursor != 0) {
-						cursor--;
-					}	
-				}
-        }
-        
-        
-        // 4. 출력
-        for(String output : list_str) {
-        	System.out.print(output);
-        }
-        
-        sc.close();
-	}
+		for(int i = 0; i < str.length(); i++) {
+			lStack.add(str.charAt(i));
+		}
+		
+		
+		// 3. 명령을 수행한다.
+		while(n-- > 0) {
+			String cmd = reader.readLine();	// 셋째 줄부터 명령이 들어온다.
 
-}
+			if(cmd.contains("P")) {
+				lStack.add(cmd.charAt(2));	// 예) cmd = P x 이면 인덱스 번호 2가 x가 된다.
+			
+			} else {
+				switch(cmd) {
+					case "L": 	// L : 커서를 왼쪽으로 한 칸 옮김 (커서가 문장의 맨 앞이면 무시됨)
+						if(!lStack.isEmpty()) {	// 그냥 예외처리
+							rStack.add(lStack.pop());	// pop : 스택의 가장 위에 있는 데이터를 삭제와 동시에 출력한다.
+						}	
+						break;
+					case "D": 	// D : 커서를 오른쪽으로 한 칸 옮김 (커서가 문장의 맨 뒤이면 무시됨)
+						if(!rStack.isEmpty()) {
+							lStack.add(rStack.pop());
+						}	
+						break;
+					case "B": 	// B : 커서 왼쪽에 있는 문자를 삭제함 (커서가 문장의 맨 앞이면 무시됨)
+						if(!lStack.isEmpty()) {
+							lStack.pop();
+						}	
+						break;
+				}
+			}
+		}	// while문 끝
+		while(!lStack.isEmpty()) rStack.add(lStack.pop());
+		while(!rStack.isEmpty()) System.out.print(rStack.pop());
+	}
+	
+}	
